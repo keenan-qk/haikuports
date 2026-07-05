@@ -82,6 +82,10 @@ INSTALL()
 	prepareInstalledDevelLib \
 		libminiupnpc
 	fixPkgconfig
+	
+	sed -i \
+		-e "s|$prefix/include/miniupnpc|$developHeadersDir/miniupnpc|g" \
+		$libDir/cmake/miniupnpc/libminiupnpc-shared.cmake
 
 	packageEntries devel \
 		$developDir \
